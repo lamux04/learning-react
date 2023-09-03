@@ -1,0 +1,85 @@
+aside {
+  position: fixed;
+  height: 100%;
+  top: 0;
+  right: 0;
+  width: 300px;
+  gap: 20px;
+  background-color: #222;
+  display: flex;
+  flex-direction: column;
+  overflow-x: auto;
+
+}
+
+aside ul {
+  width: 300px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin: 0;
+  padding: 0;
+}
+
+.openAside {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  font-size: 28px;
+  background-color: inherit;
+  border: none;
+  color: #eee;
+  transition: color .3s;
+}
+
+.openAside:hover {
+  cursor: pointer;
+  color: #999;
+  transition: color .3s;
+}
+
+.closeAside {
+  color: #8f0000;
+  font-size: 28px;
+  background-color: inherit;
+  border: none;
+  width: 28px;
+  margin: 10px;
+  transition: color .3s;
+}
+
+.closeAside:hover {
+  cursor: pointer;
+  color: #460000;
+  transition: color .3s;
+}
+
+.close-button {
+  width: 25px;
+  height: 25px;
+  border-radius: 50%;
+  background-color: #591414;
+  color: #000000;
+  border: none;
+  text-align: center;
+  line-height: 25px;
+  transition: background-color .3s;
+  align-self: flex-end;
+  position: relative;
+  top: 17px;
+  left: 8px;
+}
+
+.close-button:hover {
+  cursor: pointer;
+  background-color: #ffd9d9;
+  transition: background-color .3s;
+}
+
+.book-of-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  width: 150px;
+}

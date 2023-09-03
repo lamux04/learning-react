@@ -1,0 +1,89 @@
+#root {
+  max-width: 1000px;
+  width: 80%;
+  margin: auto;
+}
+
+main {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 15px;
+  padding: 15px;
+}
+
+h1 {
+  text-align: center;
+}
+
+header {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+form {
+  display: flex;
+  justify-content: center;
+}
+
+.movies {
+  width: 100%;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 20px;
+}
+
+.movies_li {
+  list-style-type: none;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  border: 2px solid #405168;
+  border-radius: 10px;
+  padding-bottom: 10px;
+}
+
+.movies_li img {
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+}
+
+.movies_li_title {
+  font-size: 18px;
+  font-weight: 600;
+  text-align: center;
+}
+
+.movies_li_year {
+  font-size: 16px;
+  color: #999;
+  align-self: flex-end;
+  padding-right: 10px;
+}
+
+p {
+  margin: 0;
+  text-align: center;
+}
+
+.spinner {
+  width: 30px;
+  height: 30px;
+  border: 8px solid;
+  border-color: #3d5af1 transparent #3d5af1 transparent;
+  border-radius: 50%;
+  animation: spin-anim 1.2s linear infinite;
+}
+
+@keyframes spin-anim {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}

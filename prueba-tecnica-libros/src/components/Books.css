@@ -1,0 +1,35 @@
+ul {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, 150px);
+  gap: 15px;
+  justify-content: center;
+  align-content: center;
+}
+
+.liBook {
+  display: flex;
+  flex-direction: column;
+}
+
+.liBook button {
+  align-self: center;
+}
+
+.book {
+  height: 225px;
+  background-size: contain;
+  background-position: center;
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  transition: filter .3s;
+  gap: 15px;
+  padding: 15px;
+  transition: filter .3s;
+}
+
+.book:hover {
+  cursor: pointer;
+  filter: brightness(50%);
+  transition: filter .3s;
+}

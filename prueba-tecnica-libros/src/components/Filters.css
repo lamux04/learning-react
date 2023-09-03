@@ -1,0 +1,38 @@
+.filters {
+  display: flex;
+  width: 1000px;
+  max-width: 80%;
+  margin: auto;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.filters_pages,
+.filters_category,
+.filters_search {
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  border-radius: 15px;
+  padding: 30px;
+  text-align: center;
+  height: 159px;
+  width: 291px;
+}
+
+label {
+  font-weight: 600;
+}
+
+select,
+.filters_search > input{
+  background-color: #eee;
+  font-family: 'Poppins', sans-serif;
+  border-radius: 15px;
+  padding: 5px 10px;
+  outline: none;
+  border: 1px solid #eee;
+  background-color: #111;
+  color: #eee;
+}
