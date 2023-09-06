@@ -1,15 +1,34 @@
 import { Note } from './components/Note';
 import noteService from './services/notes';
 import { useState, useEffect } from 'react';
+import { Notification } from './components/Notification';
+
+import './index.css';
+
+function Footer () {
+  return (
+    <div
+      style={{
+        color: 'green',
+        fontStyle: 'italic',
+        fontSize: 16
+      }}
+    >
+      <br />
+      <em>Note app, Deparment of Computer Science, University of Cadiz 2023</em>
+    </div>
+  );
+}
 
 const App = () => {
   const [notes, setNotes] = useState([]);
   const [newNote, setNewNote] = useState('');
   const [showAll, setShowAll] = useState(true);
+  const [errorMessage, setErrorMessage] = useState(null);
 
   useEffect(() => {
     noteService.getAll()
-      .then(respones => setNotes(respones.data));
+      .then(initialNotes => setNotes(initialNotes));
   }, []);
 
   const notesToShow = showAll ? notes : notes.filter(note => note.important);
@@ -19,8 +38,13 @@ const App = () => {
     const changedNote = { ...note, important: !note.important };
 
     noteService.update(id, changedNote)
-      .then(response => {
-        setNotes(notes.map(n => n.id !== id ? n : response.data));
+      .then(returnedNote => {
+        setNotes(notes.map(n => n.id !== id ? n : returnedNote));
+      })
+      .catch(() => {
+        setErrorMessage(`The note '${note.content}' was already deleted from server`);
+        setTimeout(() => setErrorMessage(null), 5000);
+        setNotes(notes.filter(n => n.id !== id));
       });
   };
 
@@ -33,8 +57,8 @@ const App = () => {
     };
 
     noteService.create(newNoteObject)
-      .then(response => {
-        setNotes(notes.concat(response.data));
+      .then(returnedNote => {
+        setNotes(notes.concat(returnedNote));
         setNewNote('');
       });
   };
@@ -49,6 +73,10 @@ const App = () => {
 
   return (
     <div>
+      <h1>Notes</h1>
+      <Notification
+        message={errorMessage}
+      />
       <button onClick={handleImportantClick}>{showAll ? 'Important' : 'All'}</button>
       <ul>
         {notesToShow.map(note => (
@@ -59,6 +87,7 @@ const App = () => {
         <input type='text' value={newNote} onChange={handleNoteChange} />
         <button type='submit'>Save</button>
       </form>
+      <Footer />
     </div>
   );
 };
